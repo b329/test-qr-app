@@ -1,28 +1,63 @@
-# Environment Configuration
-.env
-.env.*
-
-# Dependency directory
-node_modules
-
-# Test coverage directory
-coverage
-
-# Ignore Apple macOS Desktop Services Store
-.DS_Store
+# compiled output
+/dist
+/node_modules
 
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# ngrok tunnel file
-config/tunnel.pid
+# OS
+.DS_Store
 
-# vite build output
-dist/
+# Tests
+/coverage
+/.nyc_output
 
-# extensions build output
-extensions/*/build
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# Node library SQLite database
-web/database.sqlite
+# IDE - VSCode
+.vscode/*
+.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+/personal_scripts
+
+# config file
+.local.env
+.local-test.env
+.local-test2.env
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# docker database
+/docker/mysql
+
+# graphql
+schema.gql
+
+## redis
+dump.rdb
+
+# yarn berry use zero-install
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
