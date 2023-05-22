@@ -8,6 +8,8 @@ import shopify from "./shopify.js";
 import GDPRWebhookHandlers from "./gdpr.js";
 
 import applyQrCodeApiEndpoints from "./middleware/qr-code-api.js";
+import applyQrCodePublicEndpoints from "./middleware/qr-code-public.js";
+
 
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
@@ -35,6 +37,11 @@ app.post(
 
 // If you are adding routes outside of the /api path, remember to
 // also add a proxy rule for them in web/frontend/vite.config.js
+
+// Add the following code directly before the call to app.use("/api/*", shopify.validateAuthenticatedSession());.
+// Because the endpoints to load the QR code image and destination are public,
+// they don't require an active Shopify session:
+applyQrCodePublicEndpoints(app);
 
 // All endpoints after this point will require an active session
 app.use("/api/*", shopify.validateAuthenticatedSession());
